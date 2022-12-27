@@ -97,9 +97,11 @@ const Employees = () => {
 				<div class="col-8">
 					<div class="card-collection">
 			{employees.map((employee) => (
-			<div id={employee.id} className="card m-2">
+			<div id={employee.id} className="card m-2" style={{cursor: "pointer"}}>
+
+				{
+				(employee.gender === "male")? <img src={maleProfile} alt="male" className="card-img-top" /> : <img src={femaleProfile} alt="female" className="card-img-top" />				}
 				
-				<img src={femaleProfile} className="card-img-top" />
 				<div className="card-body">
 					<h5 className="card-title">Full Name: {employee.fullName}</h5>
 					<p className="card-text">Designation: {employee.designation}</p>
