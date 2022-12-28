@@ -97,12 +97,17 @@ const Employees = () => {
 		console.log(event.target.value)
 		setTeam(event.target.value);
 	}
+
+	function handleEmployeeCardClick(event){
+		const transformedEmployees = employees.map((employee) => employee.id===parseInt(event.currentTarget.id)? (employee.teamName === selectedTeam?{...employee, teamName:''}:{...employee, teamName:selectedTeam}):employee);
+		setEmployees(transformedEmployees);
+	}
 	
 	return (
 		<main className="container">
 		
-			<div class="row justify-content-center mt-3 mb-3">
-		<div class="col-6">
+			<div className="row justify-content-center mt-3 mb-3">
+		<div className="col-6">
 			<select className="form-select form-select-lg" value={selectedTeam} onChange={handleTeamSelectionChange}>
 			<option value="Team A">Team A</option>
 			<option value="Team B">Team B</option>
@@ -117,7 +122,7 @@ const Employees = () => {
 				<div class="col-8">
 					<div class="card-collection">
 			{employees.map((employee) => (
-			<div id={employee.id} className="card m-2" style={{cursor: "pointer"}}>
+			<div id={employee.id} className="card m-2" style={{cursor: "pointer"}} onClick={handleEmployeeCardClick}>
 
 				{
 				(employee.gender === "male")? <img src={maleProfile} alt="male" className="card-img-top" /> : <img src={femaleProfile} alt="female" className="card-img-top" />				}
