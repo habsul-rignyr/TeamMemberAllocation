@@ -118,9 +118,9 @@ const Employees = () => {
 		</div>
 
 			
-			<div class="row justify-content-center mt-3 mb-3">
-				<div class="col-8">
-					<div class="card-collection">
+			<div className="row justify-content-center mt-3 mb-3">
+				<div className="col-8">
+					<div className="card-collection">
 			{employees.map((employee) => (
 			<div id={employee.id} className={(employee.teamName===selectedTeam?'card m-2 standout':'card m-2')} style={{cursor: "pointer"}} onClick={handleEmployeeCardClick}>
 
