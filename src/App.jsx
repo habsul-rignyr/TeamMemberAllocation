@@ -1,6 +1,5 @@
 import './App.css'
 import Header from './Header'
-
 import Footer from './Footer'
 import Employees from './Employees'
 import { useState } from 'react';
@@ -109,11 +108,15 @@ export default function App() {
 	
   return (
     <div>
-		<Header />
-		<Employees employees={employees} 
+		<Header selectedTeam = {selectedTeam}
+						teamMemberCount={employees.filter((employee) => employee.teamName === selectedTeam).length}
+			/>
+		<Employees 
+							employees={employees} 
+							selectedTeam={selectedTeam}
 							handleEmployeeCardClick={handleEmployeeCardClick}
 							handleTeamSelectionChange={handleTeamSelectionChange}
-							selectedTeam={selectedTeam}
+							
 							/>
 		<Footer />
 			/>
