@@ -120,7 +120,7 @@ export default function App() {
 							/>
 		<Footer />
 			/>
-		<Footer />
+		
 		</div>
   )
 }
